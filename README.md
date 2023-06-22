@@ -1,8 +1,12 @@
-# WheelPickerCompose [![](https://jitpack.io/v/commandiron/WheelPickerCompose.svg)](https://jitpack.io/#commandiron/WheelPickerCompose) <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
+# WheelPickerCompose [![](https://jitpack.io/v/KDVL/WheelPickerCompose.svg)](https://jitpack.io/#KDVL/WheelPickerCompose) <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
 
 Add Wheel Date - Time Picker in Android Jetpack Compose.
 
 <img src="art/wheel_picker_compose_cover.png"> 
+
+## Disclamer
+
+This is a forked project adding a new feature and accessibility improvement -> <a href="https://github.com/commandiron/WheelPickerCompose">Original project</a>
 
 ## Usage
 |Picker|Usage|
@@ -106,7 +110,7 @@ dependencyResolutionManagement {
 3. Add dependency
 ```groovy
 dependencies {
-    implementation 'com.github.commandiron:WheelPickerCompose:1.1.11'
+    implementation 'com.github.KDVL:WheelPickerCompose:2.0.0'
 }
 ```
 4. < API 26 (optional)
