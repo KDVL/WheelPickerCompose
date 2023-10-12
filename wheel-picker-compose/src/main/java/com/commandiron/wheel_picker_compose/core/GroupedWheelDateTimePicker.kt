@@ -68,9 +68,9 @@ internal fun GroupedWheelDateTimePicker(
                     val newDateTime = when(snappedDate) {
                         is GroupedDate.Date -> {
                             snappedDateTime
-                                .withDayOfMonth(snappedDate.groupedLocalDate.dayOfMonth)
-                                .withMonth(snappedDate.groupedLocalDate.monthValue)
                                 .withYear(snappedDate.groupedLocalDate.year)
+                                .withMonth(snappedDate.groupedLocalDate.monthValue)
+                                .withDayOfMonth(snappedDate.groupedLocalDate.dayOfMonth)
                         }
                     }
 
