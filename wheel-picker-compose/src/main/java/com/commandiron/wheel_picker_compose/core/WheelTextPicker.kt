@@ -16,6 +16,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import java.util.Collections.emptyList
 
 @Composable
 fun WheelTextPicker(
@@ -28,6 +29,7 @@ fun WheelTextPicker(
     style: TextStyle = MaterialTheme.typography.titleMedium,
     color: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () -> Unit = {},
     onScrollFinished: (snappedIndex: Int) -> Int? = { null },
 ) {
     var snappedIndex by remember { mutableStateOf(startIndex) }
@@ -38,6 +40,7 @@ fun WheelTextPicker(
         count = texts.size,
         rowCount = rowCount,
         selectorProperties = selectorProperties,
+        onScroll = onScroll,
         onScrollFinished = {
             snappedIndex = it
             onScrollFinished(it)

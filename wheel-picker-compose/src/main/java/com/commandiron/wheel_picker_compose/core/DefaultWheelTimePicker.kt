@@ -29,6 +29,7 @@ internal fun DefaultWheelTimePicker(
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     textColor: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () -> Unit = {},
     onSnappedTime : (snappedTime: SnappedTime, timeFormat: TimeFormat) -> Int? = { _,_ -> null },
 ) {
 
@@ -104,6 +105,7 @@ internal fun DefaultWheelTimePicker(
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
                 ),
+                onScroll = onScroll,
                 onScrollFinished = { snappedIndex ->
 
                     val newHour = if(timeFormat == TimeFormat.HOUR_24) {
@@ -163,6 +165,7 @@ internal fun DefaultWheelTimePicker(
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
                 ),
+                onScroll = onScroll,
                 onScrollFinished = { snappedIndex ->
 
                     val newMinute = minutes.find { it.index == snappedIndex }?.value
@@ -217,6 +220,7 @@ internal fun DefaultWheelTimePicker(
                     selectorProperties = WheelPickerDefaults.selectorProperties(
                         enabled = false
                     ),
+                    onScroll = onScroll,
                     onScrollFinished = { snappedIndex ->
 
                         val newAmPm =  amPms.find {

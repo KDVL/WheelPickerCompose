@@ -1,6 +1,7 @@
 package com.commandiron.wheelpickercompose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -38,13 +39,37 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        WheelTimePicker { snappedTime ->
+                        WheelTimePicker(
+                            onScroll = {
+                                Log.println(
+                                    Log.INFO,
+                                    "onScroll",
+                                    "onScroll WheelDatePicker"
+                                )
+                            }
+                        ) { snappedTime ->
                             println(snappedTime)
                         }
-                        WheelDatePicker { snappedDate ->
+                        WheelDatePicker(
+                            onScroll = {
+                                Log.println(
+                                    Log.INFO,
+                                    "onScroll",
+                                    "onScroll WheelDatePicker"
+                                )
+                            },
+                        ) { snappedDate ->
                             println(snappedDate)
                         }
-                        WheelDateTimePicker { snappedDateTime ->
+                        WheelDateTimePicker(
+                            onScroll = {
+                                Log.println(
+                                    Log.INFO,
+                                    "onScroll",
+                                    "onScroll WheelDateTimePicker"
+                                )
+                            },
+                        ) { snappedDateTime ->
                             println(snappedDateTime)
                         }
                         WheelDateTimePicker(
@@ -60,13 +85,20 @@ class MainActivity : ComponentActivity() {
                             rowCount = 5,
                             textStyle = MaterialTheme.typography.titleSmall,
                             textColor = Color(0xFFffc300),
+                            onScroll = {
+                                Log.println(
+                                    Log.INFO,
+                                    "onScroll",
+                                    "onScroll WheelDateTimePicker"
+                                )
+                            },
                             selectorProperties = WheelPickerDefaults.selectorProperties(
                                 enabled = true,
                                 shape = RoundedCornerShape(0.dp),
                                 color = Color(0xFFf1faee).copy(alpha = 0.2f),
                                 border = BorderStroke(2.dp, Color(0xFFf1faee))
                             )
-                        ){ snappedDateTime ->
+                        ) { snappedDateTime ->
                             println(snappedDateTime)
                         }
 
@@ -87,6 +119,13 @@ class MainActivity : ComponentActivity() {
                             rowCount = 5,
                             textStyle = MaterialTheme.typography.bodyLarge,
                             textColor = Color(0xFFFFFFFF),
+                            onScroll = {
+                                Log.println(
+                                    Log.INFO,
+                                    "onScroll",
+                                    "onScroll GroupedWheelDateTimePicker"
+                                )
+                            },
                             selectorProperties = WheelPickerDefaults.selectorProperties(
                                 enabled = true,
                                 shape = RoundedCornerShape(5.dp),

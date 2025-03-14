@@ -29,6 +29,7 @@ fun GroupedWheelDateTimePicker(
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     textColor: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () -> Unit = {},
     onDateTimeChanged: (dateTime: LocalDateTime) -> Unit = {}
 ) {
     GroupedWheelDateTimePicker(
@@ -44,6 +45,7 @@ fun GroupedWheelDateTimePicker(
         textStyle,
         textColor,
         selectorProperties,
+        onScroll,
         onDateTime = { onDateTimeChanged(it.groupedLocalDateTime) }
     )
 }

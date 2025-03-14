@@ -1,5 +1,6 @@
 package com.commandiron.wheel_picker_compose.core
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -28,6 +29,7 @@ internal fun DefaultWheelDatePicker(
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     textColor: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () -> Unit = {},
     onSnappedDate : (snappedDate: SnappedDate) -> Int? = { _ -> null }
 ) {
     var snappedDate by remember { mutableStateOf(startDate) }
@@ -77,6 +79,7 @@ internal fun DefaultWheelDatePicker(
                     enabled = false
                 ),
                 startIndex = dayOfMonths.find { it.value== startDate.dayOfMonth }?.index ?: 0,
+                onScroll = onScroll,
                 onScrollFinished = { snappedIndex ->
 
                     val newDayOfMonth = dayOfMonths.find { it.index == snappedIndex }?.value
@@ -117,6 +120,7 @@ internal fun DefaultWheelDatePicker(
                     enabled = false
                 ),
                 startIndex = months.find { it.value== startDate.monthValue }?.index ?: 0,
+                onScroll = onScroll,
                 onScrollFinished = { snappedIndex ->
 
                     val newMonth = months.find { it.index == snappedIndex }?.value
@@ -162,6 +166,7 @@ internal fun DefaultWheelDatePicker(
                         enabled = false
                     ),
                     startIndex = years.find { it.value == startDate.year }?.index ?:0,
+                    onScroll = onScroll,
                     onScrollFinished = { snappedIndex ->
 
                         val newYear = years.find { it.index == snappedIndex }?.value

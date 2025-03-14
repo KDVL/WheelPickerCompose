@@ -34,6 +34,7 @@ internal fun GroupedWheelDatePicker(
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     textColor: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () ->  Unit,
     onSnappedDate : (snappedDate: GroupedDate) -> Unit = {},
 ) {
     var snappedDate by remember { mutableStateOf(startDate) }
@@ -67,6 +68,7 @@ internal fun GroupedWheelDatePicker(
                 color = textColor,
                 selectorProperties = WheelPickerDefaults.selectorProperties(enabled = false),
                 startIndex = dates.find { it.value == startDate }?.index ?: 0,
+                onScroll = onScroll,
                 onScrollFinished = { snappedIndex ->
                     dates
                         .find { it.index == snappedIndex }

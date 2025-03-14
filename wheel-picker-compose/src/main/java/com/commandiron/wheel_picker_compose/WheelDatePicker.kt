@@ -25,6 +25,7 @@ fun WheelDatePicker(
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     textColor: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () -> Unit = {},
     onSnappedDate : (snappedDate: LocalDate) -> Unit = {}
 ) {
     DefaultWheelDatePicker(
@@ -38,6 +39,7 @@ fun WheelDatePicker(
         textStyle,
         textColor,
         selectorProperties,
+        onScroll,
         onSnappedDate = { snappedDate ->
             onSnappedDate(snappedDate.snappedLocalDate)
             snappedDate.snappedIndex

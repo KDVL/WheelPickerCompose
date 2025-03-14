@@ -32,6 +32,7 @@ internal fun GroupedWheelDateTimePicker(
     textStyle: TextStyle = MaterialTheme.typography.titleMedium,
     textColor: Color = LocalContentColor.current,
     selectorProperties: SelectorProperties = WheelPickerDefaults.selectorProperties(),
+    onScroll: () -> Unit = {},
     onDateTime : (snappedDateTime: GroupedDateTime) -> Unit = {}
 ) {
     var snappedDateTime by remember { mutableStateOf(startDateTime.truncatedTo(ChronoUnit.MINUTES)) }
@@ -64,6 +65,7 @@ internal fun GroupedWheelDateTimePicker(
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
                 ),
+                onScroll = onScroll,
                 onSnappedDate = { snappedDate ->
                     val newDateTime = when(snappedDate) {
                         is GroupedDate.Date -> {
@@ -95,6 +97,7 @@ internal fun GroupedWheelDateTimePicker(
                 selectorProperties = WheelPickerDefaults.selectorProperties(
                     enabled = false
                 ),
+                onScroll = onScroll,
                 onSnappedTime = { snappedTime, timeFormat ->
                     val newDateTime = when(snappedTime) {
                         is SnappedTime.Hour -> {
